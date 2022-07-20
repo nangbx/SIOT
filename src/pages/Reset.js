@@ -10,6 +10,7 @@ import Logo from "../components/Logo";
 // sections
 import { LoginForm } from "../sections/auth/login";
 import AuthSocial from "../sections/auth/AuthSocial";
+import { ResetForm } from "../sections/auth/reset";
 
 // ----------------------------------------------------------------------
 
@@ -56,7 +57,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function Login() {
+export default function Reset() {
 	const smUp = useResponsive("up", "sm");
 
 	const mdUp = useResponsive("up", "md");
@@ -92,25 +93,16 @@ export default function Login() {
 				<Container maxWidth='sm'>
 					<ContentStyle>
 						<Typography variant='h4' gutterBottom>
-							Sign in to Siot
+							Reset password
 						</Typography>
 
 						<Typography sx={{ color: "text.secondary", mb: 5 }}>
 							Enter your details below.
 						</Typography>
 
-						<AuthSocial />
-
-						<LoginForm />
-
-						{!smUp && (
-							<Typography variant='body2' align='center' sx={{ mt: 3 }}>
-								Don’t have an account?{" "}
-								<Link variant='subtitle2' component={RouterLink} to='/register'>
-									Get started
-								</Link>
-							</Typography>
-						)}
+						{/* <AuthSocial /> */}
+						<ResetForm />
+						{/* <LoginForm /> */}
 					</ContentStyle>
 				</Container>
 			</RootStyle>

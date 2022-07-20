@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URL } from "../constraints/const";
 
 const register = (firstname, lastname, email, password) => {
-	return axios.post(API_URL + "register", {
+	return axios.post(API_URL + "api/auth/register", {
 		firstname,
 		lastname,
 		email,
@@ -11,7 +11,7 @@ const register = (firstname, lastname, email, password) => {
 };
 const login = (email, password) => {
 	return axios
-		.post(API_URL + "login", {
+		.post(API_URL + "api/auth/login", {
 			email,
 			password,
 		})
@@ -25,9 +25,15 @@ const login = (email, password) => {
 const logout = () => {
 	localStorage.removeItem("user");
 };
+const reset = (email) => {
+	return axios.post(API_URL + "reset", {
+		email,
+	});
+};
 const authService = {
 	register,
 	login,
 	logout,
+	reset,
 };
 export default authService;
